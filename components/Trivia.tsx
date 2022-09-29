@@ -2,15 +2,15 @@ import { useState, useEffect, FC } from "react";
 import Answer from "./Answer";
 
 interface Trivia {
-  question: string,
-  correct: string,
-  incorrect: string[],
-  score: number,
-  setScore: Function,
-  finish: boolean
+  question: string;
+  correct: string;
+  incorrect: string[];
+  score: number;
+  setScore: Function;
+  finish: boolean;
 }
 
-const Trivia:FC<Trivia> = ({
+const Trivia: FC<Trivia> = ({
   question,
   correct,
   incorrect,
@@ -20,14 +20,13 @@ const Trivia:FC<Trivia> = ({
 }) => {
   const answers = incorrect.concat(correct);
 
-  console.log(typeof question)
-
   const [disable, setDisable] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  function shuffle(array: any) {
-    array.sort(() => Math.random() - 0.5);
+  function shuffle(array: string[]) {
+    const newArray = [...array]
+    newArray.sort(() => Math.random() - 0.5);
   }
 
   useEffect(() => {
@@ -35,9 +34,9 @@ const Trivia:FC<Trivia> = ({
   }, [answers]);
 
   return (
-    <div className="w-2/3 p-8 outline outline-offset-0 outline-pink-500 shadow-xl">
-      <div className="text-xl text-pink-600 font-semibold">{question}</div>
-      <div className="flex gap-5 justify-evenly mt-5">
+    <div className="w-sm sm:w-2/3 p-8 outline outline-offset-0 outline-pink-500 shadow-xl">
+      <div className="text-xl text-pink-600 font-semibold m-5">{question}</div>
+      <div className="flex flex-wrap gap-5 justify-evenly mt-5">
         <Answer
           value={answers[0]}
           isSelected={activeIndex === 0}

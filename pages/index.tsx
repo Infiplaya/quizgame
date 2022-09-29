@@ -5,20 +5,15 @@ import StartMenu from "../components/StartMenu";
 import Quiz from "../components/Quiz";
 import { Question, GetQuestionResults } from "../types";
 
-const Home: NextPage<{questions: Question[]}> = ({ questions }) => {
+const Home: NextPage<{ questions: Question[] }> = ({ questions }) => {
   const [isStarted, setIsStarted] = useState(false);
   return (
     <>
       <Head>
         <title>Quiz game</title>
       </Head>
-      {JSON.stringify(questions)}
       <div className="">
-        {!isStarted && (
-          <StartMenu
-            startGame={() => setIsStarted(true)}
-          />
-        )}
+        {!isStarted && <StartMenu startGame={() => setIsStarted(true)} />}
         {isStarted && <Quiz questions={questions} />}
       </div>
     </>

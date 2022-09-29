@@ -4,7 +4,7 @@ const he = require("he");
 import Score from "./Score";
 import { Question, GetQuestionResults } from "../types";
 
-const Quiz:FC<{questions: Question[]}> = ({ questions }) => {
+const Quiz: FC<{ questions: Question[] }> = ({ questions }) => {
   const [finish, setFinish] = useState(false);
 
   const [score, setScore] = useState(0);
@@ -15,9 +15,9 @@ const Quiz:FC<{questions: Question[]}> = ({ questions }) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const trivias = questions.map((trivia: any) => (
+  const trivias = questions.map((trivia) => (
     <Trivia
-      key={trivia.id}
+      key={trivia.question}
       question={he.decode(trivia.question)}
       correct={he.decode(trivia.correct_answer)}
       incorrect={trivia.incorrect_answers}
@@ -27,9 +27,10 @@ const Quiz:FC<{questions: Question[]}> = ({ questions }) => {
     />
   ));
 
+
   return (
     <>
-      <div className="flex flex-col align-middle justify-center items-center">
+      <div className="flex flex-col align-middle justify-center items-center w-sm">
         <div ref={ref}>{finish && <Score score={score} />}</div>
         {!finish && (
           <h1 className="text-4xl font-bold m-5 text-sky-500">

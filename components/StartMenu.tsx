@@ -1,10 +1,15 @@
+import { FC } from "react";
 
-const StartMenu = ({ startGame }) => {
+interface StartMenu {
+  startGame: () => void;
+}
+
+const StartMenu:FC<StartMenu> = ({ startGame }) => {
   return (
     <>
       <div className="flex flex-col p-5 align-middle justify-center items-center h-screen">
         <div></div>
-        <h1 className="font-bold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+        <h1 className="font-bold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-center">
           Quiz game wow
         </h1>
         <p className="mt-5 text-2xl mb-5 font-medium">

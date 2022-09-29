@@ -1,6 +1,17 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
-export default function Answer({
+interface Answer {
+  value: string;
+  isSelected: boolean;
+  onSelect: Function;
+  score: number;
+  setScore: Function;
+  correct: string;
+  finish: boolean;
+  disable: boolean;
+}
+
+const Answer: FC<Answer> = ({
   value,
   isSelected,
   onSelect,
@@ -9,7 +20,7 @@ export default function Answer({
   correct,
   finish,
   disable,
-}: any) {
+}) => {
   const [changeColor, setChangeColor] = useState(false);
 
   function addScore() {
@@ -36,4 +47,6 @@ export default function Answer({
       {value}
     </button>
   );
-}
+};
+
+export default Answer

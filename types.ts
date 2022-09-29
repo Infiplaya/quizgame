@@ -1,5 +1,3 @@
-import { InformationEvent } from "http";
-
 export interface GetQuestionResults {
     results: Question[];
 }
