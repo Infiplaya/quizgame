@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { useState } from 'react';
 import Head from 'next/head'
 import StartMenu from '../components/StartMenu'
@@ -22,7 +22,7 @@ const Home: NextPage = ({questions}:any) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch('https://opentdb.com/api.php?amount=10&type=multiple')
   const {results}= await res.json();
 
