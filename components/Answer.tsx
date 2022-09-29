@@ -49,4 +49,4 @@ const Answer: FC<Answer> = ({
   );
 };
 
-export default Answer
+export default Answer;

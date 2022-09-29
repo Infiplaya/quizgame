@@ -3,7 +3,7 @@ import { useState } from "react";
 import Head from "next/head";
 import StartMenu from "../components/StartMenu";
 import Quiz from "../components/Quiz";
-import { Question, GetQuestionResults } from "../types";
+import type { Question, GetQuestionResults } from "../types";
 
 const Home: NextPage<{ questions: Question[] }> = ({ questions }) => {
   const [isStarted, setIsStarted] = useState(false);

@@ -25,7 +25,7 @@ const Trivia: FC<Trivia> = ({
   const [activeIndex, setActiveIndex] = useState(-1);
 
   function shuffle(array: string[]) {
-    const newArray = [...array]
+    const newArray = [...array];
     newArray.sort(() => Math.random() - 0.5);
   }
 
