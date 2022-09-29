@@ -6,7 +6,7 @@ const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) 
 
   const [disable, setDisable] = useState(false)
 
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   function shuffle(array: any) {
     array.sort(() => Math.random() - 0.5);
