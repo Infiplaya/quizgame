@@ -1,3 +1,6 @@
+import { withRouter } from "next/router";
+import { useState } from "react";
+
 export default function Answer({
   value,
   isSelected,
@@ -6,11 +9,9 @@ export default function Answer({
   setScore,
   correct,
   finish,
-  disable
+  disable,
 }: any) {
-  const styles = {
-    backgroundColor: isSelected ? "#FF016F" : "",
-  };
+  const [changeColor, setChangeColor] = useState(false);
 
   function addScore() {
     if (!finish) {
@@ -20,10 +21,14 @@ export default function Answer({
     }
   }
 
+
   return (
     <button
-      style={styles}
-      className="p-2 rounded-md w-48 bg-slate-400 m-3"
+      className={
+        isSelected
+          ? "bg-blue-300 m-3 p-2 rounded-md w-48"
+          : "p-2 rounded-md w-48 bg-slate-400 m-3"
+      }
       disabled={disable}
       onClick={() => {
         onSelect();

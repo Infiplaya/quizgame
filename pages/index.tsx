@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Head from 'next/head'
 import StartMenu from '../components/StartMenu'
 import Quiz from "../components/Quiz"
-import { GetStaticProps } from 'next';
 
 const Home: NextPage = ({questions}:any) => {
   
