@@ -1,10 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import Answer from "./Answer";
 
-const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) => {
+interface Trivia {
+  question: string,
+  correct: string,
+  incorrect: string[],
+  score: number,
+  setScore: Function,
+  finish: boolean
+}
+
+const Trivia:FC<Trivia> = ({
+  question,
+  correct,
+  incorrect,
+  score,
+  setScore,
+  finish,
+}) => {
   const answers = incorrect.concat(correct);
 
-  const [disable, setDisable] = useState(false)
+  console.log(typeof question)
+
+  const [disable, setDisable] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(-1);
 
@@ -24,8 +42,8 @@ const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) 
           value={answers[0]}
           isSelected={activeIndex === 0}
           onSelect={() => {
-            setActiveIndex(0)
-            setDisable(true)
+            setActiveIndex(0);
+            setDisable(true);
           }}
           score={score}
           setScore={setScore}
@@ -37,8 +55,9 @@ const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) 
           value={answers[1]}
           isSelected={activeIndex === 1}
           onSelect={() => {
-            setActiveIndex(1)
-            setDisable(true)}}
+            setActiveIndex(1);
+            setDisable(true);
+          }}
           score={score}
           setScore={setScore}
           correct={correct}
@@ -49,8 +68,9 @@ const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) 
           value={answers[2]}
           isSelected={activeIndex === 2}
           onSelect={() => {
-            setActiveIndex(2)
-            setDisable(true)}}
+            setActiveIndex(2);
+            setDisable(true);
+          }}
           score={score}
           setScore={setScore}
           correct={correct}
@@ -61,8 +81,9 @@ const Trivia = ({ question, correct, incorrect, score, setScore, finish }: any) 
           value={answers[3]}
           isSelected={activeIndex === 3}
           onSelect={() => {
-            setActiveIndex(3)
-            setDisable(true)}}
+            setActiveIndex(3);
+            setDisable(true);
+          }}
           score={score}
           setScore={setScore}
           correct={correct}

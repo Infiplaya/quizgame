@@ -1,4 +1,3 @@
-import { withRouter } from "next/router";
 import { useState } from "react";
 
 export default function Answer({
@@ -20,7 +19,6 @@ export default function Answer({
       }
     }
   }
-
 
   return (
     <button

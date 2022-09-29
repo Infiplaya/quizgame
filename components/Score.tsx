@@ -1,4 +1,10 @@
-const Score = ({score}:any) => {
+import { FC } from "react";
+
+interface Score {
+  score: number
+}
+
+const Score:FC<Score> = ({score}) => {
   const total = 10
     return (
       <>

@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, FC } from "react";
 import Trivia from "./Trivia";
 const he = require("he");
 import Score from "./Score";
+import { Question, GetQuestionResults } from "../types";
 
-const Quiz = ({ data }: any) => {
+const Quiz:FC<{questions: Question[]}> = ({ questions }) => {
   const [finish, setFinish] = useState(false);
 
   const [score, setScore] = useState(0);
@@ -14,7 +15,7 @@ const Quiz = ({ data }: any) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const trivias = data.map((trivia: any) => (
+  const trivias = questions.map((trivia: any) => (
     <Trivia
       key={trivia.id}
       question={he.decode(trivia.question)}
