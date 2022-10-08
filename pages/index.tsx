@@ -22,7 +22,7 @@ const Home: NextPage<{ questions: Question[] }> = ({ questions }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
-    "https://opentdb.com/api.php?amount=10&type=multiple"
+    "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
   );
   const { results }: GetQuestionResults = await res.json();
 
